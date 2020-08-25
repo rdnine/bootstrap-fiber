@@ -15,6 +15,8 @@ func main() {
 		Views: engine,
 	})
 
+	app.Static("/", "./public")
+
 	routes.Web(app)
 
 	app.Listen(3000)
