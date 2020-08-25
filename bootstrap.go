@@ -3,6 +3,7 @@ package main
 import(
 	"github.com/gofiber/fiber"
 	"github.com/gofiber/template/html"
+	"./routes"
 )
 
 func main() {
@@ -14,11 +15,7 @@ func main() {
 		Views: engine,
 	})
 
-	app.Get("/", func(c *fiber.Ctx) {
-		c.Render("index", fiber.Map{
-			"HelloWorld": "Welcome to Fiber!",
-		})
-	})
+	routes.Web(app)
 
 	app.Listen(3000)
 }
